@@ -1,0 +1,58 @@
+<mat-toolbar style="background-color: white;">
+    <span>Add</span>
+    <i style="padding-left: 80%; font-size: 230%;" mat-dialog-close class="bi bi-x"></i>
+  </mat-toolbar>
+
+<div mat-dialog-content>
+    <form class="example-form">
+      
+        <table class="example-full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>First name</mat-label>
+            <input matInput>
+          </mat-form-field></td>
+          <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input matInput>
+          </mat-form-field></td>
+        </tr></table>
+      
+        <p>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Address</mat-label>
+            <textarea matInput placeholder="Ex. 100 Main St">Thimphu</textarea>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Address 2</mat-label>
+            <textarea matInput></textarea>
+          </mat-form-field>
+        </p>
+      
+        <table class="example-full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>City</mat-label>
+            <input matInput placeholder="Ex. San Francisco">
+          </mat-form-field></td>
+          <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>State</mat-label>
+            <input matInput placeholder="Ex. California">
+          </mat-form-field></td>
+        </tr></table>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>search your country</mat-label>
+          <input type="text"
+                 placeholder="Pick one"
+                 aria-label="Number"
+                 matInput
+                 [formControl]="myControl"
+                 [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        
+        <button mat-raised-button color="primary">Submit</button>
+      </form>
+</div>

@@ -1,0 +1,98 @@
+table {
+	width: 100%;
+
+	padding-left: 0 ;
+
+
+  }
+
+  .tableHead {
+    // border-left: 1px solid #ddd;
+    // border-right: 1px solid #ddd;
+    // border-bottom: 1px solid #ddd;
+    color: #212121 !important;
+    margin-bottom: 7%;
+}
+  .demo{
+    margin: auto;
+    width: 80%;
+   
+  }
+  
+  /* go 1 dirextion, gutter */
+  /* flexbox */
+  .flexbox{
+    display:flex;
+    flex-wrap: wrap;
+    margin:0 10px 50px 10px;
+  }
+  /* .box{
+    flex: 1 1 220px;
+    margin: 10px;
+    border:2px solid black;
+    border-radius:5px;
+  } */
+  
+  .dark{
+    background-color:rgb(255, 255, 255);
+  }
+  
+  
+  .light{
+    background-color:rgb(255, 255, 255);
+  }
+  
+  .box-b, .box-c{
+    font-weight:bold;
+    font-size:3em;
+    text-align:center;
+  } 
+  
+  .box-c{
+    flex: 1 1 420px;
+    margin: 10px;
+    border:1px solid rgba(136, 136, 136, 0.384);
+    border-radius:5px;
+    
+    
+  }
+  .box-b{
+    flex: 1 1 150px;
+    margin: 10px;
+    border:1px solid rgba(104, 104, 104, 0.445);
+    border-radius:5px;
+    .divider{
+      margin-left: 7px;
+      width: 97%;
+      border-top:1px solid rgba(75, 74, 74, 0.445);
+      border-bottom:1px solid rgba(94, 94, 94, 0.445);
+    }
+ 
+
+  }
+  .divider2{
+    margin-left: 7px;
+    width: 97% !important;
+    border-bottom:1px solid rgba(78, 78, 78, 0.445);
+  }
+  .divider3{
+    margin-left: -15px;
+    width: 104% !important;
+    border-bottom:1px solid rgba(78, 78, 78, 0.445);
+  }
+  .divider4{
+    margin-left: -9px;
+    width: 102% !important;
+    border-bottom:1px solid rgba(78, 78, 78, 0.445);
+  }
+
+  .topInfo{
+    margin-top: 2%;
+  }
+
+  
+
+  
+
+  
+  

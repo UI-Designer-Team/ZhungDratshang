@@ -1,0 +1,200 @@
+<body>
+    <!-- Header Starts -->
+    <div class="header">
+      <div class="header__left">
+        <span [ngClass]="{selectedLogo: isSideNavCollapsed == true}" class="material-icons"  (click)="toggle()"> menu </span>
+        <img
+          src="/assets/logojpg.jpg"
+        />
+        &nbsp;
+        <p>DMIS</p>
+      </div>
+  
+      <div class="header__middle">
+        <span class="material-icons"> search </span>
+        <input type="text" placeholder="Search mail" />
+        <span class="material-icons"> arrow_drop_down </span>
+      </div>
+  
+      <div class="header__right">
+        <span class="material-icons" [matMenuTriggerFor]="apps"> apps </span>
+        <span class="material-icons"> notifications </span>
+        <span class="material-icons" [matMenuTriggerFor]="account"> account_circle </span>
+      </div>
+      
+      
+    </div>
+    <mat-menu #apps="matMenu">
+        <div  class="container-fluid text-center">
+          <div class="row" style="z-index: 4;" >
+            <div class="col-4" *ngFor="let apps of app">
+              <img class="avatar avatar-64 bg-light rounded-circle text-white p-2"
+                   src="{{apps.img}}">
+                  <label>{{apps.name}}</label>
+            </div>
+            </div>
+        </div>
+    </mat-menu>
+    <mat-menu #account="matMenu">
+
+        <div class="card">
+            <div class="img">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp">
+            </div>
+            <div class="infos">
+              <div class="name">
+                <h2>Amit Sharma</h2>
+                <h4>@Athang</h4>
+              </div>
+              <p class="text">
+                I'm a Front End Developer, follow me to be the first 
+                who see my new work.
+              </p>
+              <ul class="stats">
+                <li>
+                  <h3>15K</h3>
+                  <h4>Views</h4>
+                </li>
+                <li>
+                  <h3>82</h3>
+                  <h4>Projects</h4>
+                </li>
+                <li>
+                  <h3>1.3M</h3>
+                  <h4>Followers</h4>
+                </li>
+              </ul>
+              <div class="links">
+                <button class="follow">Follow</button>
+                <button class="view">View profile</button>
+              </div>
+            </div>
+          </div>
+      </mat-menu>
+    <!-- Header Ends -->
+  
+    <!-- Main Body Starts -->
+    <div class="main__body">
+      <!-- Sidebar Starts -->
+    <app-side-menu ></app-side-menu>
+      <!-- Sidebar Ends -->
+  
+      <!-- Email List Starts -->
+      <div class="emailList">
+        <!-- Settings Starts -->
+        <!-- <div class="emailList__settings">
+          <div class="emailList__settingsLeft">
+            <input type="checkbox" />
+            <span class="material-icons"> arrow_drop_down </span>
+            <span class="material-icons"> redo </span>
+            <span class="material-icons"> more_vert </span>
+          </div>
+          <div class="emailList__settingsRight">
+            <span class="material-icons"> chevron_left </span>
+            <span class="material-icons"> chevron_right </span>
+            <span class="material-icons"> keyboard_hide </span>
+            <span class="material-icons"> settings </span>
+          </div>
+        </div> -->
+        <!-- Settings Ends -->
+  
+        <!-- Section Starts -->
+        <div class="emailList__sections">
+          <div (click)="firstTab(1)" [ngClass]="{ section__selected: tabOne == 'show' }" class="section" >
+            <span class="material-icons"> inbox </span>
+            <h4>Primary</h4>
+          </div>
+  
+          <div (click)="firstTab(2)" [ngClass]="{ section__selected2: tabTwo == 'show2' }" class="section">
+            <span class="material-icons"> local_offer </span>
+            <h4>Promotions</h4><!--comment-->
+          </div>
+  
+          <div  (click)="firstTab(3)" [ngClass]="{ section__selected3: tabThree == 'show3' }" class="section">
+            <span class="material-icons"> people </span>
+            <h4>Social</h4>
+          </div>
+        </div>
+        <!-- Section Ends -->
+  
+        <!-- Email List rows starts -->
+        <div class="emailList__list">
+          <!-- Email Row Starts -->
+          <div *ngIf="tabOne == 'show'" class="tab-content tableHead" id="nav-tabContent">
+            <div class="tab-pane show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+              <!-------------------tba------------------------->
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col">
+                    <div   style="padding-left:0; margin-top: 2%; justify-content:center;">
+                      <mat-button-toggle-group class="toogleButton" name="fontStyle" aria-label="Font Style">
+                        <mat-button-toggle [print]="['demo', config]"> <i class="bi bi-printer"></i>Print</mat-button-toggle>
+                        <mat-button-toggle (click)="ExportTOExcel()"><i class="bi bi-file-earmark-spreadsheet"></i>Export as Excel</mat-button-toggle>
+                        <mat-button-toggle  (click)="downloadAsPDF()"><i class="bi bi-file-earmark-pdf"></i>Export To PDF</mat-button-toggle>
+                      </mat-button-toggle-group>
+                      &nbsp;&nbsp;
+                      <button (click)="openDialog()" mat-raised-button style="background-color: rgba(48, 98, 191, 0.568);">
+                        <i class="bi bi-plus-circle-fill"></i> &nbsp;&nbsp;Create</button>
+                      <input class="textbox" [(ngModel)]="searchValue" (keyup)="applyFilter()" placeholder="Filter">
+                    </div>
+                  </div>
+                </div>
+              <div class="row" style="margin-top: 7px;">
+                <div class="example-container mat-elevation-z8 "  >
+                  <div #TABLE id="pdfTable" #pdfTable>
+                  <table id="demo" mat-table #table [dataSource]="dataSource"  >
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="position">
+                      <th mat-header-cell *matHeaderCellDef> No. </th>
+                      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                    </ng-container>
+  
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="name">
+                      <th mat-header-cell *matHeaderCellDef> Name </th>
+                      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+  
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="weight">
+                      <th mat-header-cell *matHeaderCellDef> Weight </th>
+                      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                    </ng-container>
+  
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="symbol">
+                      <th mat-header-cell *matHeaderCellDef> Symbol </th>
+                      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                    </ng-container>
+  
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    <!-- <tr class="mat-row" *matNoDataRow>
+                      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                    </tr> -->
+                  </table>
+                </div>
+                  <mat-paginator #paginator
+                                 [pageSize]="10"
+                                 [pageSizeOptions]="[5, 10, 20]">
+                  </mat-paginator>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div *ngIf="tabTwo == 'show2' ">
+            <app-user></app-user>
+          </div>
+          <div  *ngIf="tabThree == 'show3' ">
+            <!-- <app-table></app-table> -->
+          </div>
+          <!-- Email Row Ends -->
+        </div>
+        <!-- Email List rows Ends -->
+      </div>
+      <!-- Email List Ends -->
+    </div>
+    <!-- Main Body Ends -->
+  </body>

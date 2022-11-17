@@ -1,0 +1,52 @@
+ul {
+    margin: 0px;
+    padding: 0px;
+  }
+  .footer-section {
+  margin-top: 39%;
+  position: relative;
+  background-color: #ff5e14;
+  
+  }
+  .copyright-area{
+  height: 10px;
+  
+  }
+  .copyright-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #878787;
+  }
+  .copyright-text p a{
+  color: #ff5e14;
+  }
+  .footer-menu li {
+  display: inline-block;
+  margin-left: 20px;
+  }
+  .footer-menu li:hover a{
+  color: #ff5e14;
+  }
+  .footer-menu li a {
+  font-size: 14px;
+  color: #878787;
+  }
+
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+  mat-grid-tile {
+    background: rgb(163, 163, 163);
+  }
+
+  
