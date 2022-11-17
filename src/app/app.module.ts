@@ -14,8 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
-import { MainTabComponent } from './components/main-tab/main-tab.component';
-import { PrimaryComponent } from './components/main-tab/primary/primary.component';
+
 import { MatTabsModule} from '@angular/material/tabs';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatCardModule} from '@angular/material/card';
@@ -44,8 +43,7 @@ import { FooterComponent } from './components/footer/footer.component';
   declarations: [
     AppComponent,
     SideMenuComponent,
-    MainTabComponent,
-    PrimaryComponent,
+ 
     TestComponent,
     FormComponent,
     UserComponent,
