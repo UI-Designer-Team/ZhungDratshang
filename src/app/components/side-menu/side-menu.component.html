@@ -1,5 +1,5 @@
-<div  #sidenav class="main__body" [ngClass]="sideBarHide ? 'sidebar': 'collapsed'">
-  <div [ngClass]="showToggle ? 'sidebar': 'collapsed' "  class="sidebar">
+<div  #sidenav class="main__body" [ngClass]="stylesideBar ? 'main__body': 'smallViewSideBar' "   [ngClass]="sideBarHide ? 'sidebar': 'collapsed'">
+  <div [ngClass]="showToggle ? 'sidebar': 'collapsed' "   class="sidebar">
     <!-- <button class="sidebar__compose"><span class="material-icons"> add </span>Compose</button> -->
     <div class="sidebarOption sidebarOption__active">
       <span class="material-icons"> inbox </span>

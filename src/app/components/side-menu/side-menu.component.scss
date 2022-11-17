@@ -1,14 +1,58 @@
 /* Sidebar */
+
+// .smallViewSideBar{
+//     flex: 0.3;
+//     width: 140px !important;
+//     padding-right: 20px;
+//     padding-top: 10px;
+//     // border-right: 1px solid rgba(100, 100, 100, 0.196);
+
+//   .sidebarOption {
+//     display: flex;
+//     align-items: center;
+//     height: 40px;
+//     padding: 0 10px;
+//     border-top-right-radius: 20px;
+//     border-bottom-right-radius: 20px;
+//     cursor: pointer;
+//     color: #818181;
+//   }
+  
+//   .sidebarOption .material-icons {
+//     padding: 5px;
+//   }
+  
+//   .sidebarOption h3 {
+//     flex: 1;
+//     margin-left: 10px;
+//     font-size: 14px;
+//     font-weight: 400;
+//     margin-top: 12px;
+//   }
+  
+//   .sidebarOption:hover,
+//   // .sidebarOption:hover h3,
+//   // .sidebarOption:hover .material-icons,
+//   .sidebarOption__active
+//   // .sidebarOption__active h3,
+//   // .sidebarOption__active .material-icons 
+//   {
+//     background-color: #fcecec;
+//     color: #c04b37;
+//     font-weight: 800;
+//     width: 100%;
+//   }
+
+// }
 .collapsed{
   flex: 0.3;
-  width: 50px;
+  width: 60px;
   padding-right: 20px;
   border-right: 1px solid rgba(100, 100, 100, 0.196);
   // .sidebar {
   //   flex: 0.3;
-  //   width: 150px;
+  //   width: 50px;
   //   padding-right: 20px;
-  //   border-right: 1px solid rgba(100, 100, 100, 0.196);
   // }
   
 .sidebarOption {
@@ -45,16 +89,17 @@
   font-weight: 800;
   border-bottom-right-radius: 50px;
   border-top-right-radius: 50px;
-  width: 44px;
-  height: 35px;
+  width: 45px;
+
 
 }
 
 }
 .sidebar {
   flex: 0.3;
-  width: 150px;
+  width: 190px;
   padding-right: 20px;
+  padding-top: 10px;
   // border-right: 1px solid rgba(100, 100, 100, 0.196);
 }
 
@@ -75,9 +120,9 @@
 //   box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75);
 // }
 
-.sidebar__compose span {
-  margin-right: 5px;
-}
+// .sidebar__compose span {
+//   margin-right: 5px;
+// }
 
 .sidebarOption {
   display: flex;
@@ -103,14 +148,16 @@
 }
 
 .sidebarOption:hover,
-.sidebarOption:hover h3,
-.sidebarOption:hover .material-icons,
-.sidebarOption__active,
-.sidebarOption__active h3,
-.sidebarOption__active .material-icons {
+// .sidebarOption:hover h3,
+// .sidebarOption:hover .material-icons,
+.sidebarOption__active
+// .sidebarOption__active h3,
+// .sidebarOption__active .material-icons 
+{
   background-color: #fcecec;
   color: #c04b37;
   font-weight: 800;
+  width: 150%;
 }
 
 .sidebar__footer {

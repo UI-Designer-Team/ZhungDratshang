@@ -31,7 +31,7 @@ export class SideMenuComponent implements OnInit {
 
 
 
- sideBarHide:boolean
+ sideBarHide:boolean=false
 
   availableColors: ChipColor[] = [
     {name: 'none', color: undefined},
@@ -81,7 +81,7 @@ export class SideMenuComponent implements OnInit {
 ];
 
 isLoad:boolean = true;
-
+stylesideBar:boolean = true
 constructor(private service:ServiceService) { }
 
   ngOnInit() {
@@ -97,11 +97,13 @@ constructor(private service:ServiceService) { }
     console.log(this.screenWidth, "width");
     this.getScreenWidth().subscribe(width => {
       if (width < 640) {
+       this.stylesideBar = false
        this.showToggle = 'show';
        this.mode = 'over';
        this.sideBarHide = false;
      }
      else if (width > 640) {
+      this.stylesideBar = true
        this.showToggle = 'hide';
        this.mode = 'side';
        this.sideBarHide = true;
