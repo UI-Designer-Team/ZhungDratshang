@@ -93,11 +93,16 @@
       overflow: scroll;
       margin-left: -10px !important;
     }
+    .emailListcollapsed{
+      flex: 1;
+      overflow: scroll;
+      margin-left: -2% !important;
+    }
   }
   .emailListcollapsed{
     flex: 1;
     overflow: scroll;
-    margin-left: 3px !important;
+    margin-left: 2px;
   }
   
   .emailList__settings {
@@ -438,7 +443,7 @@
       min-width: 100px;
     }
   }
-  
+
 
     
   

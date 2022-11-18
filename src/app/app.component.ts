@@ -58,7 +58,8 @@ const ELEMENT_DATA: Element[] = [
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, AfterViewInit{
- 
+  private screenWidth$ = new BehaviorSubject<number>
+  (window.innerWidth);
   app:any[]=[
     {img:'https://bookassist.org/wp-content/uploads/elementor/thumbs/google_3_520-oc7dqerwmsbfad0t1gveosa6x2uck2bd7y6l2r7txs.jpg',name:'Search'},
     {img:'https://lh3.googleusercontent.com/9tLfTpdILdHDAvGrRm7GdbjWdpbWSMOa0csoQ8pUba9tLP8tq7M4Quks1xuMQAVnAxVfryiDXRzZ-KDnkPv8Sm4g_YFom1ltQHjQ6Q',name:'Maps'},
@@ -132,9 +133,24 @@ ExportTOExcel()
       data.name.trim().toLowerCase().indexOf(filterValue) !== -1;
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.screenWidth = window.innerWidth;  
+    console.log(this.screenWidth, "width");
+    this.getScreenWidth().subscribe(width => {
+      if (width < 640) {
+        this.isSideNavCollapsed = false
+     }
+     else if (width > 640) {
+      this.isSideNavCollapsed = true
+     }
+   });
   }
- 
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.screenWidth$.next(event.target.innerWidth);
+  }
+  getScreenWidth(): Observable<number> {
+    return this.screenWidth$.asObservable();
+  }
   
    toggle(){
     this.isSideNavCollapsed =! this.isSideNavCollapsed

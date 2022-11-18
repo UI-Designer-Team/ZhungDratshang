@@ -35,6 +35,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {NgxMatSelectModule} from "ngx-mat-select";
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { FooterComponent } from './components/footer/footer.component';
+import { Form2Component } from './components/form2/form2.component';
 
 
 
@@ -47,7 +48,8 @@ import { FooterComponent } from './components/footer/footer.component';
     TestComponent,
     FormComponent,
     UserComponent,
-    FooterComponent
+    FooterComponent,
+    Form2Component
   ],
   imports: [
     BrowserModule,
