@@ -2,7 +2,7 @@
     <!-- Header Starts -->
     <div class="header">
       <div class="header__left">
-        <span [ngClass]="{selectedLogo: isSideNavCollapsed == true}" class="material-icons"  (click)="toggle()"> menu </span>
+        <span [ngClass]="{selectedLogo: isSideNavCollapsed == true}" class="material-icons hamIcon1"  (click)="toggle()"> menu </span>
         <img
           src="/assets/logojpg.jpg"
         />
@@ -80,7 +80,7 @@
       <!-- Sidebar Ends -->
   
       <!-- Email List Starts -->
-      <div class="emailList">
+      <div [ngClass]="isSideNavCollapsed ? 'emailList': 'emailListcollapsed' ">
         <!-- Settings Starts -->
         <!-- <div class="emailList__settings">
           <div class="emailList__settingsLeft">
@@ -118,7 +118,7 @@
         <!-- Section Ends -->
   
         <!-- Email List rows starts -->
-        <div class="emailList__list">
+        <div>
           <!-- Email Row Starts -->
           <div *ngIf="tabOne == 'show'" class="tab-content tableHead" id="nav-tabContent">
             <div class="tab-pane show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
