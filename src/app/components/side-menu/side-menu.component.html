@@ -32,7 +32,7 @@
     </div>
   
     <div (click)="onSwitch()" class="sidebarOption">
-      <span class="material-icons"> expand_more </span>
+      <span class="material-icons">{{showMore ? 'expand_more ' : 'expand_less'}} </span>
       <h3>{{showMore ? 'Less' : 'More'}}</h3>
     </div>
     <div *ngIf="showMore" class="sidebarOption">

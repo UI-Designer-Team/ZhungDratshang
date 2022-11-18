@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { map, Observable, startWith } from 'rxjs';
 export interface DialogData {
@@ -12,29 +12,15 @@ export interface DialogData {
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
-  constructor(
-    public dialogRef: MatDialogRef<FormComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
-  ) {}
+  hide = true;
+  email = new FormControl('', [Validators.required, Validators.email]);
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-  myControl = new FormControl('');
-  options: string[] = ['Bhutan', 'India', 'Nepal'];
-  filteredOptions: Observable<string[]>;
+  getErrorMessage() {
+    if (this.email.hasError('required')) {
+      return 'You must enter a value';
+    }
 
-  ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value || '')),
-    );
-  }
-
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+    return this.email.hasError('email') ? 'Not a valid email' : '';
   }
   
 }
