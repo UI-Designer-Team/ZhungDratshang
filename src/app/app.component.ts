@@ -13,6 +13,7 @@ import * as pdfMake from 'pdfmake/build/pdfmake';
 
 import { BehaviorSubject, Observable } from 'rxjs';
 import { FormComponent } from './components/form/form.component';
+import { Form2Component } from './components/form2/form2.component';
 var htmlToPdfmake = require("html-to-pdfmake");
 export interface app{
   img:string,
@@ -170,6 +171,13 @@ openDialog() {
   const dialogRef = this.dialog.open(FormComponent
   , {height: '400px'}
   );
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log(`Dialog result: ${result}`);
+  });
+}
+openDialog2() {
+  const dialogRef = this.dialog.open(Form2Component);
 
   dialogRef.afterClosed().subscribe(result => {
     console.log(`Dialog result: ${result}`);

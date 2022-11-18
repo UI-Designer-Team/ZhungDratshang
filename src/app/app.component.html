@@ -28,7 +28,7 @@
         <div  class="container-fluid text-center">
           <div class="row" style="z-index: 4;" >
             <div class="col-4" *ngFor="let apps of app">
-              <img class="avatar avatar-64 bg-light rounded-circle text-white p-2"
+              <img class="avatar avatar-64 bg-light rounded-circle text-white p-2 "
                    src="{{apps.img}}">
                   <label>{{apps.name}}</label>
             </div>
@@ -36,41 +36,50 @@
         </div>
     </mat-menu>
     <mat-menu #account="matMenu">
-
-        <div class="card">
-            <div class="img">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp">
+      <mat-card class="example-card mat-elevation-z0">
+        <div class="container-fluid text-center">
+          <div class="row">
+            <div class="col">
             </div>
-            <div class="infos">
-              <div class="name">
-                <h2>Amit Sharma</h2>
-                <h4>@Athang</h4>
-              </div>
-              <p class="text">
-                I'm a Front End Developer, follow me to be the first 
-                who see my new work.
-              </p>
-              <ul class="stats">
-                <li>
-                  <h3>15K</h3>
-                  <h4>Views</h4>
-                </li>
-                <li>
-                  <h3>82</h3>
-                  <h4>Projects</h4>
-                </li>
-                <li>
-                  <h3>1.3M</h3>
-                  <h4>Followers</h4>
-                </li>
-              </ul>
-              <div class="links">
-                <button class="follow">Follow</button>
-                <button class="view">View profile</button>
-              </div>
-            </div>
-          </div>
-      </mat-menu>
+            <div class="col">
+              <img class="avatar avatar-96 bg-light rounded-circle text-white p-2"
+          src="https://library.kissclipart.com/20180828/vew/kissclipart-computer-engineer-cartoon-png-clipart-programmer-c-5c3cad628ac2db6f.png">
+        </div>
+        <div class="col">
+        </div>
+      </div>
+    </div>
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <div class="row">
+      <div class="col"> <mat-card-title>Amit Sharma</mat-card-title></div>
+      <div class="col"> <mat-card-subtitle>athang@gmail.com</mat-card-subtitle></div>
+      <div class="col">
+        <button mat-stroked-button style="border-radius: 20px;" color="primary">Manage Account</button>
+      </div>
+    </div>
+  </mat-card-header>
+  <mat-card-content class="cart-content">
+    <div class="d-grid gap-2">
+      <button class="btn" type="button">
+        <mat-icon style="padding-top: 2%; margin-right:5px">person_add</mat-icon>
+        Add account
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-stroked-button>Sign Out</button>
+      <mat-divider></mat-divider>
+    </div>
+    <div class="row ">
+      <div class="col">
+        <button mat-button>Privacy</button>
+      </div>
+      <div class="col">
+        <button mat-button>Terms of Service</button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+</mat-menu>
     <!-- Header Ends -->
   
     <!-- Main Body Starts -->
@@ -135,6 +144,7 @@
                       &nbsp;&nbsp;
                       <button (click)="openDialog()" mat-raised-button style="background-color: rgba(48, 98, 191, 0.568);">
                         <i class="bi bi-plus-circle-fill"></i> &nbsp;&nbsp;Create</button>
+                        <button mat-button (click)="openDialog2()">Open dialog</button>
                       <input class="textbox" [(ngModel)]="searchValue" (keyup)="applyFilter()" placeholder="Filter">
                     </div>
                   </div>
