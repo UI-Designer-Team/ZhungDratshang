@@ -1,0 +1,34 @@
+        <!-- Section Starts -->
+        <div class="emailList__sections">
+          <div (click)="firstTab(1)" [ngClass]="{ section__selected: tabOne == 'show' }" class="section" >
+            <span class="material-icons"> inbox </span>
+            <h4>Primary</h4>
+          </div>
+
+          <div (click)="firstTab(2)" [ngClass]="{ section__selected2: tabTwo == 'show2' }" class="section">
+            <span class="material-icons"> local_offer </span>
+            <h4>Promotions</h4><!--comment-->
+          </div>
+
+          <div  (click)="firstTab(3)" [ngClass]="{ section__selected3: tabThree == 'show3' }" class="section">
+            <span class="material-icons"> people </span>
+            <h4>Social</h4>
+          </div>
+        </div>
+        <!-- Section Ends -->
+
+        <!-- Email List rows starts -->
+        <div>
+          <!-- Email Row Starts -->
+          <div *ngIf="tabOne == 'show'" class="tab-content tableHead" id="nav-tabContent">
+
+          </div>
+          <div *ngIf="tabTwo == 'show2' ">
+            <app-user></app-user>
+          </div>
+          <div  *ngIf="tabThree == 'show3' ">
+            <!-- <app-table></app-table> -->
+          </div>
+          <!-- Email Row Ends -->
+        </div>
+        <!-- Email List rows Ends -->

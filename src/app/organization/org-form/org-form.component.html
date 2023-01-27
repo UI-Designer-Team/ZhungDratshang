@@ -1,0 +1,65 @@
+
+    <form [formGroup]="organizationForm" (ngSubmit)="onSubmit()" role="form">
+        <mat-dialog-content class="mat-typography">
+        <h4>Organization Form</h4>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <input type="text" name="organization_name" id="organization_name" 
+                    class="form-control input-md" placeholder="Organization Name" tabindex="2"
+                    formControlName="organization_name"
+                [class.is-invalid]="organizationForm['controls']['organization_name'].invalid &&
+                (organizationForm['controls']['organization_name'].touched)">
+            </div>
+            <small class="text-danger" 
+            *ngIf="organizationForm.get('organization_name').invalid 
+            && organizationForm.get('organization_name').touched">
+            This field is required</small>
+        </div>
+        
+        <div class="col">
+            <div class="form-group">
+                <input type="text" name="org_location" id="org_location" 
+                class="form-control input-md" placeholder="Organization Location" tabindex="2"
+                formControlName="org_location"
+                [class.is-invalid]="organizationForm['controls']['org_location'].invalid &&
+                (organizationForm['controls']['org_location'].touched)">
+            </div>
+            <small class="text-danger" 
+            *ngIf="organizationForm.get('org_location').invalid 
+            && organizationForm.get('org_location').touched">
+            This field is required</small>
+        </div>
+        
+        <div class="col">
+            <select style="height:34.5px" class="form-select form-select-lg mb-3" formControlName="org_type">
+                <option value="null">Select Organization Type</option>
+                <option value="Dratshang">Dratshang</option>
+                <option value="Shaydra">Shaydra</option>
+                <option value="Lobdra">Lobdra</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col">
+            <div class="form-group">
+                <label for="org_description">Organization Description:</label>
+                <textarea class="form-control" formControlName="org_description"
+                [class.is-invalid]="organizationForm['controls']['org_description'].invalid &&
+                (organizationForm['controls']['org_description'].touched)"  rows="3"></textarea>
+            </div>
+            <small class="text-danger" 
+            *ngIf="organizationForm.get('org_description').invalid 
+            && organizationForm.get('org_description').touched">
+            This field is required</small>
+        </div>
+    </div>
+    
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button style="background-color: red; color:white" mat-button mat-dialog-close>Cancel</button>
+    <button type="submit" style="background-color:green; color:white" mat-button cdkFocusInitial>Submit</button>
+    </mat-dialog-actions>
+</form>

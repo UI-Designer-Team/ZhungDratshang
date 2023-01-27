@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
+import { APIService } from 'src/app/api.service';
+import { AppComponent } from 'src/app/app.component';
 
 
 @Component({
@@ -8,30 +11,34 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./form2.component.css']
 })
 export class Form2Component implements OnInit {
-  countries = ['Bhutan','India','Nepal','Bangladesh'];
-  emailPattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
-  registrationForm = new FormGroup({
-  first_name: new FormControl("",
-  [Validators.required]),
-  last_name: new FormControl("",
-  [Validators.required]),
-  display_name: new FormControl("",
-  [Validators.required]),
-  email: new FormControl('',
-  [Validators.required,Validators.pattern(this.emailPattern)]),
-  password: new FormControl('',
-  [Validators.required, Validators.minLength(5)]),
-  password_confirmation: new FormControl('',
-  [Validators.required, Validators.minLength(5)]),
-  });
+  registrationForm: FormGroup;
 
-  constructor() { }
+  constructor( public dialogRef: MatDialogRef<AppComponent>, private APISERVICE:APIService) { }
 
   ngOnInit(): void {
-
+    this.registrationForm = new FormGroup ({
+      enroll_no: new FormControl(null, Validators.required),
+      cid: new FormControl(null, Validators.required),
+      first_name: new FormControl(null, Validators.required),
+      middle_name: new FormControl(null, Validators.required),
+      last_name: new FormControl(null, Validators.required),
+      dob: new FormControl(null, Validators.required),
+      pervious_qualification: new FormControl(null, Validators.required),
+      father_name: new FormControl(null, Validators.required),
+      father_occupation: new FormControl(null, Validators.required),
+      mother_name: new FormControl(null, Validators.required),
+      mother_occupation: new FormControl(null, Validators.required),
+      village: new FormControl(null, Validators.required),
+      gewog: new FormControl(null, Validators.required),
+      dzongkhag: new FormControl(null, Validators.required),
+    })
   }
   onSubmit(){
-    console.log(this.registrationForm);
+    console.log(this.registrationForm.value, "data from Form");
+    this.APISERVICE.createStudentDetials(this.registrationForm.value).subscribe((result)=>{
+      console.log(result, this.registrationForm.value.enroll_no);
+    });
+    this.dialogRef.close(this.registrationForm.value)
   }
 
 

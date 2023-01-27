@@ -9,20 +9,20 @@
         &nbsp;
         <p>DMIS</p>
       </div>
-  
+
       <div class="header__middle">
         <span class="material-icons hamIcon1"> search </span>
         <input type="text" placeholder="Search mail" />
         <span class="material-icons hamIcon1"> arrow_drop_down </span>
       </div>
-  
+
       <div class="header__right">
         <span class="material-icons hamIcon1" [matMenuTriggerFor]="apps"> apps </span>
         <span class="material-icons hamIcon1"> notifications </span>
         <span class="material-icons hamIcon1" [matMenuTriggerFor]="account"> account_circle </span>
       </div>
-      
-      
+
+
     </div>
     <mat-menu #apps="matMenu">
         <div  class="container-fluid text-center">
@@ -81,13 +81,13 @@
 </mat-card>
 </mat-menu>
     <!-- Header Ends -->
-  
+
     <!-- Main Body Starts -->
     <div class="main__body">
       <!-- Sidebar Starts -->
     <app-side-menu ></app-side-menu>
       <!-- Sidebar Ends -->
-  
+
       <!-- Email List Starts -->
       <div [ngClass]="isSideNavCollapsed ? 'emailList': 'emailListcollapsed' ">
         <!-- Settings Starts -->
@@ -106,100 +106,31 @@
           </div>
         </div> -->
         <!-- Settings Ends -->
-  
+
         <!-- Section Starts -->
-        <div class="emailList__sections">
-          <div (click)="firstTab(1)" [ngClass]="{ section__selected: tabOne == 'show' }" class="section" >
-            <span class="material-icons"> inbox </span>
-            <h4>Primary</h4>
-          </div>
-  
-          <div (click)="firstTab(2)" [ngClass]="{ section__selected2: tabTwo == 'show2' }" class="section">
-            <span class="material-icons"> local_offer </span>
-            <h4>Promotions</h4><!--comment-->
-          </div>
-  
-          <div  (click)="firstTab(3)" [ngClass]="{ section__selected3: tabThree == 'show3' }" class="section">
-            <span class="material-icons"> people </span>
-            <h4>Social</h4>
-          </div>
-        </div>
+
         <!-- Section Ends -->
-  
+
         <!-- Email List rows starts -->
-        <div>
+        <div *ngIf="valueChange== 'student'">
+          <app-student-personal-details></app-student-personal-details>
           <!-- Email Row Starts -->
-          <div *ngIf="tabOne == 'show'" class="tab-content tableHead" id="nav-tabContent">
-            <div class="tab-pane show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-              <!-------------------tba------------------------->
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col">
-                    <div   style="padding-left:0; margin-top: 2%; justify-content:center;">
-                      <mat-button-toggle-group class="toogleButton" name="fontStyle" aria-label="Font Style">
-                        <mat-button-toggle [print]="['demo', config]"> <i class="bi bi-printer"></i>Print</mat-button-toggle>
-                        <mat-button-toggle (click)="ExportTOExcel()"><i class="bi bi-file-earmark-spreadsheet"></i>Export as Excel</mat-button-toggle>
-                        <mat-button-toggle  (click)="downloadAsPDF()"><i class="bi bi-file-earmark-pdf"></i>Export To PDF</mat-button-toggle>
-                      </mat-button-toggle-group>
-                      &nbsp;&nbsp;
-                      <button (click)="openDialog()" mat-raised-button style="background-color: rgba(48, 98, 191, 0.568);">
-                        <i class="bi bi-plus-circle-fill"></i> &nbsp;&nbsp;Create</button>
-                        <button mat-button (click)="openDialog2()">Open dialog</button>
-                      <input class="textbox" [(ngModel)]="searchValue" (keyup)="applyFilter()" placeholder="Filter">
-                    </div>
-                  </div>
-                </div>
-              <div class="row" style="margin-top: 7px;">
-                <div class="example-container mat-elevation-z8 "  >
-                  <div #TABLE id="pdfTable" #pdfTable>
-                  <table id="demo" mat-table #table [dataSource]="dataSource"  >
-                    <!-- Position Column -->
-                    <ng-container matColumnDef="position">
-                      <th mat-header-cell *matHeaderCellDef> No. </th>
-                      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-                    </ng-container>
-  
-                    <!-- Name Column -->
-                    <ng-container matColumnDef="name">
-                      <th mat-header-cell *matHeaderCellDef> Name </th>
-                      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-                    </ng-container>
-  
-                    <!-- Weight Column -->
-                    <ng-container matColumnDef="weight">
-                      <th mat-header-cell *matHeaderCellDef> Weight </th>
-                      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-                    </ng-container>
-  
-                    <!-- Symbol Column -->
-                    <ng-container matColumnDef="symbol">
-                      <th mat-header-cell *matHeaderCellDef> Symbol </th>
-                      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-                    </ng-container>
-  
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                    <!-- <tr class="mat-row" *matNoDataRow>
-                      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-                    </tr> -->
-                  </table>
-                </div>
-                  <mat-paginator #paginator
-                                 [pageSize]="10"
-                                 [pageSizeOptions]="[5, 10, 20]">
-                  </mat-paginator>
-  
-                </div>
-              </div>
-            </div>
-          </div>
-          </div>
-          <div *ngIf="tabTwo == 'show2' ">
-            <app-user></app-user>
-          </div>
-          <div  *ngIf="tabThree == 'show3' ">
-            <!-- <app-table></app-table> -->
-          </div>
+
+          <!-- Email Row Ends -->
+        </div>
+        <!-- Email List rows Ends -->
+
+        <!-- Email List rows starts -->
+        <div *ngIf="valueChange== 'teacher'">
+          <app-teacher-details></app-teacher-details>
+          <!-- Email Row Starts -->
+          <!-- Email Row Ends -->
+        </div>
+
+
+        <div *ngIf="valueChange== 'org'">
+          <app-organization></app-organization>
+          <!-- Email Row Starts -->
           <!-- Email Row Ends -->
         </div>
         <!-- Email List rows Ends -->
@@ -209,3 +140,4 @@
     <!-- Main Body Ends -->
    <app-footer></app-footer>
   </body>
+

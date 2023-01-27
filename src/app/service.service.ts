@@ -36,4 +36,20 @@ export class ServiceService {
   switchStyle(collapsed:boolean){
     this.bSubject.next(collapsed);
   }
+  contentSubject = new BehaviorSubject<string>('student');
+  changeContent(data:string){
+    this.contentSubject.next(data);
+  }
+
+  teacherUserSubject = new BehaviorSubject<string>(null);
+  navigate(id:string){
+    this.teacherUserSubject.next(id)
+  };
+
+  studentUserSubject = new BehaviorSubject<number>(null);s
+  navigatestudent(id:number){
+    this.studentUserSubject.next(id)
+    console.log(id);
+
+  }
 }

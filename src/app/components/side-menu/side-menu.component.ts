@@ -91,9 +91,9 @@ constructor(private service:ServiceService) { }
     this.service.bSubject.subscribe((d) => {
       this.sideBarHide = d;
       console.log(d);
-      
+
     })
-    this.screenWidth = window.innerWidth;  
+    this.screenWidth = window.innerWidth;
     console.log(this.screenWidth, "width");
     this.getScreenWidth().subscribe(width => {
       if (width < 640) {
@@ -121,7 +121,11 @@ constructor(private service:ServiceService) { }
   onSwitch(){
     this.showMore = !this.showMore
   }
-  
 
+  valueChange:string ='student';
+  switchContent(data:string){
+    this.service.changeContent(data);
+    this.valueChange = data;
+  }
 
 }

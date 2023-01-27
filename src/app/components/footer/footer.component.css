@@ -4,17 +4,26 @@
   bottom: 0;
   left: 0;
   padding: 0.5rem;
-  background-color: #efefefb4;
+  background-color: rgba(27, 25, 25, 0.973);
   text-align: center;
   height: 30px;
 }
+
 .footer-menu li {
   padding-top: -1px;
   display: inline-block;
   margin-left: 20px;
+  text-decoration: none;
+
   }
+
+  a{
+    color: rgba(255, 235, 205, 0.658) !important;
+
+  }
+
   .copyright-text p {
     margin: 0;
     font-size: 14px;
-    color: #878787;
+    color: rgba(255, 235, 205, 0.685);
     }

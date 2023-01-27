@@ -1,0 +1,217 @@
+<h2 style="color: green" mat-dialog-title>Student Details</h2>
+<form [formGroup]="registrationForm"
+        (ngSubmit)="onSubmit()" role="form">
+    <mat-dialog-content class="mat-typography">
+        <div class="container-fluid text-center">
+            <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <input type="number" name="student_identity_no" id="student_identity_no"
+                    class="form-control input-md" placeholder="Student Identity No:" tabindex="1"
+                    formControlName="student_identity_no"
+                    [class.is-invalid]="registrationForm['controls']['student_identity_no'].invalid &&
+                    (registrationForm['controls']['student_identity_no'].touched)">
+                </div>
+                <small class="text-danger"
+                *ngIf="registrationForm['controls'] ['student_identity_no'].invalid
+                && (registrationForm['controls']['student_identity_no'].touched)">
+                    This field is required</small>
+            </div>
+
+            <div class="col">
+                <div class="form-group-md">
+                    <input type="number" name="cid" id="cid"
+                    class="form-control input-md" placeholder="CID Number" tabindex="1"
+                    formControlName="cid"
+                    [class.is-invalid]="registrationForm['controls']['cid'].invalid &&
+                    (registrationForm['controls']['cid'].touched)">
+                </div>
+                <small class="text-danger"
+                *ngIf="registrationForm['controls'] ['cid'].invalid
+                && (registrationForm['controls']['cid'].touched)">
+                    This field is required</small>
+            </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <input type="text" name="first_name" id="first_name"
+                        class="form-control input-md" placeholder="First Name" tabindex="2"
+                        formControlName="first_name">
+                    </div>
+                    <small class="text-danger"
+                    *ngIf="registrationForm.get('first_name').invalid
+                    && registrationForm.get('first_name').touched">
+                        This field is required</small>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <input type="text" name="middle_name" id="middle_name"
+                        class="form-control input-md" placeholder="Middle Name" tabindex="2"
+                        formControlName="middle_name"
+                        [class.is-invalid]="registrationForm['controls']['middle_name'].invalid &&
+                        (registrationForm['controls']['middle_name'].touched)">
+                    </div>
+                    <small class="text-danger"
+                    *ngIf="registrationForm['controls'] ['middle_name'].invalid
+                    && (registrationForm['controls']['middle_name'].touched)">
+                        This field is required</small>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <input type="text" name="last_name" id="last_name"
+                        class="form-control input-md" placeholder="Last Name" tabindex="2"
+                        formControlName="last_name"
+                        [class.is-invalid]="registrationForm['controls']['last_name'].invalid &&
+                        (registrationForm['controls']['last_name'].touched)">
+                    </div>
+                    <small class="text-danger"
+                    *ngIf="registrationForm['controls'] ['last_name'].invalid
+                    && (registrationForm['controls']['last_name'].touched)">
+                        This field is required</small>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <input type="date" name="dob" id="dob"
+                        class="form-control input-md" placeholder="Date of Birth" tabindex="4"
+                        formControlName="dob"
+                        [class.is-invalid]="registrationForm['controls']['dob'].invalid &&
+                        (registrationForm['controls']['dob'].touched)">
+                        <div class="text-danger"
+                        *ngIf="registrationForm['controls']['dob'].errors &&
+                        (registrationForm['controls']['dob'].touched)">
+                        <small *ngIf="registrationForm['controls']['dob']['errors']['pattern']">
+                            Input is Invalid</small>
+                        <small  *ngIf="registrationForm['controls'] ['dob']['errors']['required']">
+                            This field is required</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                        <select style="height:69%" class="form-select form-select-lg mb-3" formControlName="pervious_qualification">
+                            <option value="null">Previous Qualification</option>
+                            <option value="10">Class 10</option>
+                            <option value="12">Class 12</option>
+                            <option value="diploma">Diploma</option>
+                            <option value="degree">Degree</option>
+                        </select>
+                </div>
+            </div>
+            <hr class="colorgraph">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <input type="text" name="father_name" id="father_name"
+                        class="form-control input-md" placeholder="Father Name" tabindex="2"
+                        formControlName="father_name"
+                        [class.is-invalid]="registrationForm['controls']['father_name'].invalid &&
+                        (registrationForm['controls']['father_name'].touched)">
+                    </div>
+                    <small class="text-danger"
+                    *ngIf="registrationForm['controls'] ['father_name'].invalid
+                    && (registrationForm['controls']['father_name'].touched)">
+                        This field is required</small>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <input type="text" name="father_occupation" id="father_occupation"
+                        class="form-control input-md" placeholder="Father's Occupation" tabindex="2"
+                        formControlName="father_occupation"
+                        [class.is-invalid]="registrationForm['controls']['father_occupation'].invalid &&
+                        (registrationForm['controls']['father_occupation'].touched)">
+                    </div>
+                    <small class="text-danger"
+                    *ngIf="registrationForm['controls'] ['father_occupation'].invalid
+                    && (registrationForm['controls']['father_occupation'].touched)">
+                        This field is required</small>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <input type="text" name="mother_name" id="mother_name"
+                        class="form-control input-md" placeholder="Mother Name" tabindex="2"
+                        formControlName="mother_name"
+                        [class.is-invalid]="registrationForm['controls']['mother_name'].invalid &&
+                        (registrationForm['controls']['mother_name'].touched)">
+                    </div>
+                    <small class="text-danger"
+                    *ngIf="registrationForm['controls'] ['mother_name'].invalid
+                    && (registrationForm['controls']['mother_name'].touched)">
+                        This field is required</small>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <input type="text" name="mother_occupation" id="mother_occupation"
+                        class="form-control input-md" placeholder="Mother's Occupation" tabindex="2"
+                        formControlName="mother_occupation"
+                        [class.is-invalid]="registrationForm['controls']['mother_occupation'].invalid &&
+                        (registrationForm['controls']['mother_occupation'].touched)">
+                    </div>
+                    <small class="text-danger"
+                    *ngIf="registrationForm['controls'] ['mother_occupation'].invalid
+                    && (registrationForm['controls']['mother_occupation'].touched)">
+                        This field is required</small>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <input type="text" name="village" id="village"
+                        class="form-control input-md" placeholder="Village" tabindex="2"
+                        formControlName="village"
+                        >
+                    </div>
+                    <small class="text-danger"
+                    *ngIf="registrationForm.get('village').invalid
+                    && (registrationForm.get('village').touched)">
+                        This field is required</small>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <input type="text" name="gewog" id="gewog"
+                        class="form-control input-md" placeholder="Gewog" tabindex="2"
+                        formControlName="gewog"
+                        [class.is-invalid]="registrationForm['controls']['gewog'].invalid &&
+                        (registrationForm['controls']['gewog'].touched)">
+                    </div>
+                    <small class="text-danger"
+                    *ngIf="registrationForm['controls'] ['gewog'].invalid
+                    && (registrationForm['controls']['gewog'].touched)">
+                        This field is required</small>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <input type="text" name="dzongkhag" id="dzongkhag"
+                        class="form-control input-md" placeholder="Dzongkhag" tabindex="2"
+                        formControlName="dzongkhag"
+                        [class.is-invalid]="registrationForm['controls']['dzongkhag'].invalid &&
+                        (registrationForm['controls']['dzongkhag'].touched)">
+                    </div>
+                    <small class="text-danger"
+                    *ngIf="registrationForm['controls'] ['dzongkhag'].invalid
+                    && (registrationForm['controls']['dzongkhag'].touched)">
+                        This field is required</small>
+                </div>
+            </div>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+    <button style="background-color: red; color:white" mat-button mat-dialog-close>Cancel</button>
+    <button type="submit" style="background-color:green; color:white" mat-button cdkFocusInitial>Submit</button>
+    </mat-dialog-actions>
+</form>

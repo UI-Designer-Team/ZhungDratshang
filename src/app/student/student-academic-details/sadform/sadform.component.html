@@ -1,0 +1,190 @@
+<h2 style="color: green" mat-dialog-title>Student Academic Details Form</h2>
+<form [formGroup]="studentAcademicDetails" (ngSubmit)="onSubmit()">
+    <mat-dialog-content class="mat-typography">
+    <div class="row">
+
+        <div class="col">
+            <fieldset disabled>
+                <div class="form-group">
+                    <input type="number" name="student_identity_no" id="student_identity_no"
+                    class="form-control input-md" placeholder="student_identity_no:" tabindex="2"
+                    formControlName="student_identity_no"
+                    [class.is-invalid]="studentAcademicDetails['controls']['student_identity_no'].invalid &&
+                    (studentAcademicDetails['controls']['student_identity_no'].touched)">
+                </div>
+                <small class="text-danger"
+                *ngIf="studentAcademicDetails.get('student_identity_no').invalid
+                && studentAcademicDetails.get('student_identity_no').touched">
+                This field is required</small>
+            </fieldset>
+          </div>
+
+          <div class="col">
+              <div class="col">
+            <select style="height:34.5px" class="form-select form-select-lg mb-3" formControlName="organization">
+                <option value="null" selected>Select Organization</option>
+                <option *ngFor="let orgName of organizationData" value="{{orgName}}">{{orgName}}</option>
+                
+            </select>
+        </div>
+            <small class="text-danger"
+            *ngIf="studentAcademicDetails.get('organization').invalid
+            && studentAcademicDetails.get('organization').touched">
+            This field is required</small>
+        </div>
+
+        
+
+    </div>
+
+    <!-- <div class="row">
+        <div class="col-12">
+            <mat-form-field>
+                <mat-label>Toppings</mat-label>
+                <mat-select [formControl]="toppings" multiple>
+                  <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+    </div> -->
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <input type="text" name="batch" id="batch"
+                class="form-control input-md" placeholder="Batch" tabindex="2"
+                formControlName="batch"
+                [class.is-invalid]="studentAcademicDetails['controls']['batch'].invalid &&
+                  (studentAcademicDetails['controls']['batch'].touched)">
+            </div>
+                <small class="text-danger"
+                *ngIf="studentAcademicDetails.get('batch').invalid
+                && studentAcademicDetails.get('batch').touched">
+                This field is required</small>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+                <input type="text" name="classs" id="classs"
+                class="form-control input-md" placeholder="Class Name" tabindex="2"
+                formControlName="classs"
+                [class.is-invalid]="studentAcademicDetails['controls']['classs'].invalid &&
+                  (studentAcademicDetails['controls']['classs'].touched)">
+            </div>
+                <small class="text-danger"
+                *ngIf="studentAcademicDetails.get('classs').invalid
+                && studentAcademicDetails.get('classs').touched">
+                This field is required</small>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+                <input type="text" name="section" id="section"
+                class="form-control input-md" placeholder="Section :" tabindex="2"
+                formControlName="section"
+                [class.is-invalid]="studentAcademicDetails['controls']['section'].invalid &&
+                  (studentAcademicDetails['controls']['section'].touched)">
+            </div>
+                <small class="text-danger"
+                *ngIf="studentAcademicDetails.get('section').invalid
+                && studentAcademicDetails.get('section').touched">
+                This field is required</small>
+          </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <input type="text" name="status" id="status"
+                class="form-control input-md" placeholder="Status" tabindex="2"
+                formControlName="status"
+                [class.is-invalid]="studentAcademicDetails['controls']['status'].invalid &&
+                  (studentAcademicDetails['controls']['status'].touched)">
+            </div>
+                <small class="text-danger"
+                *ngIf="studentAcademicDetails.get('status').invalid
+                && studentAcademicDetails.get('status').touched">
+                This field is required</small>
+          </div>
+
+        <div class="col">
+            <div class="form-group">
+                <input type="number" name="year" id="year"
+                class="form-control input-md" placeholder="Year" tabindex="2"
+                formControlName="year"
+                [class.is-invalid]="studentAcademicDetails['controls']['year'].invalid &&
+                  (studentAcademicDetails['controls']['year'].touched)">
+            </div>
+                <small class="text-danger"
+                *ngIf="studentAcademicDetails.get('year').invalid
+                && studentAcademicDetails.get('year').touched">
+                This field is required</small>
+          </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <select style="height:34.5px" class="form-select form-select-lg mb-3" formControlName="module_1">
+                <option value="null">Select Module 1</option>
+                <option value="Dzongkha">Dzongkha</option>
+                <option value="English">English</option>
+                <option value="Math">Math</option>
+                <option value="ICT">ICT</option>
+                <option value="Science">Science</option>
+                <option value="Social Studies">Social Studies</option>
+            </select>
+        </div>
+
+        <div class="col">
+            <select style="height:34.5px" class="form-select form-select-lg mb-3" formControlName="module_2">
+                <option value="null">Select Module 2</option>
+                <option value="Dzongkha">Dzongkha</option>
+                <option value="English">English</option>
+                <option value="Math">Math</option>
+                <option value="ICT">ICT</option>
+                <option value="Science">Science</option>
+                <option value="Social Studies">Social Studies</option>
+            </select>
+        </div>
+
+        <div class="col">
+            <select style="height:34.5px" class="form-select form-select-lg mb-3" formControlName="module_3">
+                <option value="null">Select Module 3</option>
+                <option value="Dzongkha">Dzongkha</option>
+                <option value="English">English</option>
+                <option value="Math">Math</option>
+                <option value="ICT">ICT</option>
+                <option value="Science">Science</option>
+                <option value="Social Studies">Social Studies</option>
+            </select>
+        </div>
+
+        <div class="col">
+            <select style="height:34.5px" class="form-select form-select-lg mb-3" formControlName="module_4">
+                <option value="null">Select Module 4</option>
+                <option value="Dzongkha">Dzongkha</option>
+                <option value="English">English</option>
+                <option value="Math">Math</option>
+                <option value="ICT">ICT</option>
+                <option value="Science">Science</option>
+                <option value="Social Studies">Social Studies</option>
+            </select>
+        </div>
+
+        <div class="col">
+            <select style="height:34.5px" class="form-select form-select-lg mb-3" formControlName="module_5">
+                <option value="null">Select Module 5</option>
+                <option value="Dzongkha">Dzongkha</option>
+                <option value="English">English</option>
+                <option value="Math">Math</option>
+                <option value="ICT">ICT</option>
+                <option value="Science">Science</option>
+                <option value="Social Studies">Social Studies</option>
+            </select>
+        </div>
+    </div>
+</mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button style="background-color: red; color:white" mat-button mat-dialog-close>Cancel</button>
+        <button type="submit" style="background-color:green; color:white" mat-button cdkFocusInitial>Submit</button>
+    </mat-dialog-actions>
+</form>

@@ -14,7 +14,6 @@ export class UserComponent implements OnInit {
     this.service.bSubject.subscribe((d) => {
       this.collapsed = d;
       console.log(d);
-      
     })
   }
 

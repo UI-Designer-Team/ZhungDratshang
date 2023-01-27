@@ -27,16 +27,28 @@ import { FormComponent } from './components/form/form.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatChipsModule} from '@angular/material/chips';
 import { NgxPrintElementModule } from 'ngx-print-element';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { UserComponent } from './components/user/user.component';
+import { UserComponent } from './teacher/user/user.component';
 import {MatSelectModule} from '@angular/material/select';
 import {NgxMatSelectModule} from "ngx-mat-select";
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { FooterComponent } from './components/footer/footer.component';
-import { Form2Component } from './components/form2/form2.component';
-
+import { Form2Component } from './student/student-personal-details/STD.form/form2.component';
+import { HttpClientModule } from '@angular/common/http';
+import { StudentPersonalDetailsComponent } from './student/student-personal-details/student-personal-details.component';
+import { StudentAcademicDetailsComponent } from './student/student-academic-details/student-academic-details.component';
+import { StudentMarkPerCourseComponent } from './student/student-mark-per-course/student-mark-per-course.component';
+import { TeacherDetailsComponent } from './teacher/teacher-details/teacher-details.component';
+import { TeacherDetailsFormComponent } from './teacher/teacher-details/teacher-details-form/teacher-details-form.component';
+import { TeacherCourseTakenComponent } from './teacher/teacher-course-taken/teacher-course-taken.component';
+import { TeacherCourseTakenFormComponent } from './teacher/teacher-course-taken/teacher-course-taken-form/teacher-course-taken-form.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { UserComponentStudent } from './student/user/user.component';
+import { SADFormComponent } from './student/student-academic-details/sadform/sadform.component';
+import { OrganizationComponent } from './organization/organization.component';
+import { OrgFormComponent } from './organization/org-form/org-form.component';
 
 
 
@@ -44,12 +56,23 @@ import { Form2Component } from './components/form2/form2.component';
   declarations: [
     AppComponent,
     SideMenuComponent,
- 
     TestComponent,
     FormComponent,
     UserComponent,
     FooterComponent,
-    Form2Component
+    Form2Component,
+    TeacherDetailsComponent,
+    StudentPersonalDetailsComponent,
+    StudentAcademicDetailsComponent,
+    StudentMarkPerCourseComponent,
+    TeacherDetailsComponent,
+    TeacherDetailsFormComponent,
+    TeacherCourseTakenComponent,
+    TeacherCourseTakenFormComponent,
+    UserComponentStudent,
+    SADFormComponent,
+    OrganizationComponent,
+    OrgFormComponent
   ],
   imports: [
     BrowserModule,
@@ -80,8 +103,12 @@ import { Form2Component } from './components/form2/form2.component';
     MatGridListModule,
     MatSelectModule,
     NgxMatSelectModule,
-    MatAutocompleteModule
-  
+    MatAutocompleteModule,
+    HttpClientModule,
+    MatDialogModule,
+    MatSlideToggleModule
+
+
 
   ],
   providers: [],

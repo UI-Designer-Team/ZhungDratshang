@@ -1,0 +1,108 @@
+<h2 style="color: green" mat-dialog-title>Teacher Course Taken Form</h2>
+  <form [formGroup]="teacherCourseTakenForm"
+  (ngSubmit)="onSubmit()" role="form">
+  <mat-dialog-content class="mat-typography">
+
+  <div class="row">
+      <div class="col">
+        <select  style="height:69%"   formControlName="teacher"
+        class="form-select form-select-lg" aria-label="Default select example">
+            <option>{{id}}</option>
+        </select>
+      </div>
+
+        <div class="col">
+          <div class="form-group">
+              <input type="text" name="course" id="course"
+              class="form-control input-md" placeholder="Course:" tabindex="2"
+              formControlName="course"
+              [class.is-invalid]="teacherCourseTakenForm['controls']['course'].invalid &&
+              (teacherCourseTakenForm['controls']['course'].touched)">
+          </div>
+              <small class="text-danger"
+              *ngIf="teacherCourseTakenForm.get('course').invalid
+              && teacherCourseTakenForm.get('course').touched">
+              This field is required</small>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col">
+          <div class="form-group">
+              <input type="text" name="organization" id="organization"
+              class="form-control input-md" placeholder="Organization Name" tabindex="2"
+              formControlName="organiztion"
+              [class.is-invalid]="teacherCourseTakenForm['controls']['organiztion'].invalid &&
+              (teacherCourseTakenForm['controls']['organiztion'].touched)">
+          </div>
+              <small class="text-danger"
+              *ngIf="teacherCourseTakenForm.get('organiztion').invalid
+              && teacherCourseTakenForm.get('organiztion').touched">
+              This field is required</small>
+      </div>
+
+      <div class="col">
+          <div class="form-group">
+              <input type="text" name="batch" id="batch"
+              class="form-control input-md" placeholder="Batch" tabindex="2"
+              formControlName="batch"
+              [class.is-invalid]="teacherCourseTakenForm['controls']['batch'].invalid &&
+                (teacherCourseTakenForm['controls']['batch'].touched)">
+          </div>
+              <small class="text-danger"
+              *ngIf="teacherCourseTakenForm.get('batch').invalid
+              && teacherCourseTakenForm.get('batch').touched">
+              This field is required</small>
+        </div>
+
+        <div class="col">
+          <div class="form-group">
+              <input type="text" name="classs" id="classs"
+              class="form-control input-md" placeholder="Class Name" tabindex="2"
+              formControlName="classs"
+              [class.is-invalid]="teacherCourseTakenForm['controls']['classs'].invalid &&
+                (teacherCourseTakenForm['controls']['classs'].touched)">
+          </div>
+              <small class="text-danger"
+              *ngIf="teacherCourseTakenForm.get('classs').invalid
+              && teacherCourseTakenForm.get('classs').touched">
+              This field is required</small>
+        </div>
+  </div>
+
+  <div class="row">
+      <div class="col">
+          <div class="form-group">
+              <input type="text" name="status" id="status"
+              class="form-control input-md" placeholder="Status" tabindex="2"
+              formControlName="status"
+              [class.is-invalid]="teacherCourseTakenForm['controls']['status'].invalid &&
+                (teacherCourseTakenForm['controls']['status'].touched)">
+          </div>
+              <small class="text-danger"
+              *ngIf="teacherCourseTakenForm.get('status').invalid
+              && teacherCourseTakenForm.get('status').touched">
+              This field is required</small>
+        </div>
+
+        <div class="col">
+          <div class="form-group">
+              <input type="text" name="remarks" id="remarks"
+              class="form-control input-md" placeholder="Remarks" tabindex="2"
+              formControlName="remarks"
+              [class.is-invalid]="teacherCourseTakenForm['controls']['remarks'].invalid &&
+                (teacherCourseTakenForm['controls']['remarks'].touched)">
+          </div>
+              <small class="text-danger"
+              *ngIf="teacherCourseTakenForm.get('remarks').invalid
+              && teacherCourseTakenForm.get('remarks').touched">
+              This field is required</small>
+        </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+<button style="background-color: red; color:white" mat-button mat-dialog-close>Cancel</button>
+<button style="background-color:green; color:white" mat-button cdkFocusInitial>Submit</button>
+</mat-dialog-actions>
+</form>
+

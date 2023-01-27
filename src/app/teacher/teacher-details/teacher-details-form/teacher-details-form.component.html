@@ -1,0 +1,128 @@
+<h2 style="color: green" mat-dialog-title>Teacher Details</h2>
+  <form [formGroup]="teacherDetailForm"
+  (ngSubmit)="onSubmit()" role="form">
+  <mat-dialog-content class="mat-typography">
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+          <input type="number" name="id" id="id"
+          class="form-control input-md" placeholder="Teacher Id" tabindex="2"
+          formControlName="id"
+          [class.is-invalid]="teacherDetailForm['controls']['id'].invalid &&
+            (teacherDetailForm['controls']['id'].touched)">
+      </div>
+          <small class="text-danger"
+          *ngIf="teacherDetailForm.get('id').invalid
+          && teacherDetailForm.get('id').touched">
+          This field is required</small>
+    </div>
+
+    <div class="col">
+      <div class="form-group">
+          <input type="number" name="cid" id="cid"
+          class="form-control input-md" placeholder="cid Number" tabindex="2"
+          formControlName="cid"
+          [class.is-invalid]="teacherDetailForm['controls']['cid'].invalid &&
+            (teacherDetailForm['controls']['cid'].touched)">
+      </div>
+          <small class="text-danger"
+          *ngIf="teacherDetailForm.get('cid').invalid
+          && teacherDetailForm.get('cid').touched">
+          This field is required</small>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col">
+        <div class="form-group">
+            <input type="text" name="first_name" id="first_name"
+            class="form-control input-md" placeholder="First Name" tabindex="2"
+            formControlName="first_name"
+            [class.is-invalid]="teacherDetailForm['controls']['first_name'].invalid &&
+            (teacherDetailForm['controls']['first_name'].touched)">
+        </div>
+        <small class="text-danger"
+        *ngIf="teacherDetailForm.get('first_name').invalid
+        && teacherDetailForm.get('first_name').touched">
+            This field is required</small>
+    </div>
+
+    <div class="col">
+        <div class="form-group">
+            <input type="text" name="second_name" id="second_name"
+            class="form-control input-md" placeholder="Middle Name" tabindex="2"
+            formControlName="second_name"
+            [class.is-invalid]="teacherDetailForm['controls']['second_name'].invalid &&
+            (teacherDetailForm['controls']['second_name'].touched)">
+        </div>
+        <small class="text-danger"
+        *ngIf="teacherDetailForm['controls'] ['second_name'].invalid
+        && (teacherDetailForm['controls']['second_name'].touched)">
+            This field is required</small>
+    </div>
+
+    <div class="col">
+        <div class="form-group">
+            <input type="text" name="last_name" id="last_name"
+            class="form-control input-md" placeholder="Last Name" tabindex="2"
+            formControlName="last_name"
+            [class.is-invalid]="teacherDetailForm['controls']['last_name'].invalid &&
+            (teacherDetailForm['controls']['last_name'].touched)">
+        </div>
+        <small class="text-danger"
+        *ngIf="teacherDetailForm['controls'] ['last_name'].invalid
+        && (teacherDetailForm['controls']['last_name'].touched)">
+            This field is required</small>
+    </div>
+</div>
+
+
+<div class="row">
+  <div class="col">
+      <div class="form-group">
+          <input type="text" name="village" id="village"
+          class="form-control input-md" placeholder="Village" tabindex="2"
+          formControlName="village"
+          >
+      </div>
+      <small class="text-danger"
+      *ngIf="teacherDetailForm.get('village').invalid
+      && (teacherDetailForm.get('village').touched)">
+          This field is required</small>
+  </div>
+
+  <div class="col">
+      <div class="form-group">
+          <input type="text" name="gewog" id="gewog"
+          class="form-control input-md" placeholder="Gewog" tabindex="2"
+          formControlName="gewog"
+          [class.is-invalid]="teacherDetailForm['controls']['gewog'].invalid &&
+          (teacherDetailForm['controls']['gewog'].touched)">
+      </div>
+      <small class="text-danger"
+      *ngIf="teacherDetailForm['controls'] ['gewog'].invalid
+      && (teacherDetailForm['controls']['gewog'].touched)">
+          This field is required</small>
+  </div>
+
+  <div class="col">
+      <div class="form-group">
+          <input type="text" name="dzongkhag" id="dzongkhag"
+          class="form-control input-md" placeholder="Dzongkhag" tabindex="2"
+          formControlName="dzongkhag"
+          [class.is-invalid]="teacherDetailForm['controls']['dzongkhag'].invalid &&
+          (teacherDetailForm['controls']['dzongkhag'].touched)">
+      </div>
+      <small class="text-danger"
+      *ngIf="teacherDetailForm['controls'] ['dzongkhag'].invalid
+      && (teacherDetailForm['controls']['dzongkhag'].touched)">
+          This field is required</small>
+  </div>
+</div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+<button style="background-color: red; color:white" mat-button mat-dialog-close>Cancel</button>
+<button  type="submit" style="background-color:green; color:white" mat-button cdkFocusInitial>Submit</button>
+</mat-dialog-actions>
+</form>

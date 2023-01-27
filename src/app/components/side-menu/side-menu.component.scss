@@ -49,10 +49,10 @@
 }
 
 }
-@media (min-width: 500px) and (max-width: 700px){    
+@media (min-width: 500px) and (max-width: 700px){
   .sidebar {
     flex: 0.3;
-    width: 150px !important;
+    width: 170px !important;
     padding-right: 10px;
     // padding-top: 10px;
     // border-right: 1px solid rgba(100, 100, 100, 0.196);
@@ -67,24 +67,24 @@
     cursor: pointer;
     color: #818181;
   }
-  
+
   .sidebarOption .material-icons {
     padding: 5px;
   }
-  
+
   .sidebarOption h3 {
     flex: 1;
     margin-left: 10px;
     font-size: 14px;
     font-weight: 400;
   }
-  
+
   .sidebarOption:hover,
   // .sidebarOption:hover h3,
   // .sidebarOption:hover .material-icons,
   .sidebarOption__active
-  // .sidebarOption__active .material-icons, 
-  // .sidebarOption__active h3 
+  // .sidebarOption__active .material-icons,
+  // .sidebarOption__active h3
   {
     background-color: #fcecec;
     color: #c04b37;
@@ -92,7 +92,7 @@
     border-bottom-right-radius: 50px;
     border-top-right-radius: 50px;
     width: 95% !important;
-  
+
   }
   .collapsed{
     flex: 0.3;
@@ -104,7 +104,7 @@
     //   width: 50px;
     //   padding-right: 20px;
     // }
-    
+
   .sidebarOption {
     display: flex;
     align-items: center;
@@ -115,11 +115,11 @@
     cursor: pointer;
     color: #818181;
   }
-  
+
   .sidebarOption .material-icons {
     padding: 5px;
   }
-  
+
   .sidebarOption h3 {
     flex: 1;
     margin-left: 10px;
@@ -127,7 +127,7 @@
     font-weight: 400;
     visibility:hidden;
   }
-  
+
   .sidebarOption:hover,
   .sidebarOption:hover h3,
   .sidebarOption:hover .material-icons,
@@ -140,12 +140,12 @@
     border-bottom-right-radius: 50px;
     border-top-right-radius: 50px;
     width: 35% !important;
-  
-  
+
+
   }
-  
+
   }
-    
+
 }
 .sidebar {
   flex: 0.3;
@@ -204,12 +204,12 @@
 // .sidebarOption:hover .material-icons,
 .sidebarOption__active
 // .sidebarOption__active h3,
-// .sidebarOption__active .material-icons 
+// .sidebarOption__active .material-icons
 {
   background-color: #fcecec;
   color: #c04b37;
   font-weight: 800;
-  width: 150%;
+  width: 200%;
 }
 
 .sidebar__footer {

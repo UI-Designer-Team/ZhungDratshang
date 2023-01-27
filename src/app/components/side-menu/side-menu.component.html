@@ -1,36 +1,36 @@
 <div  #sidenav class="main__body" [ngClass]="stylesideBar ? 'main__body': 'smallViewSideBar' "   [ngClass]="sideBarHide ? 'sidebar': 'collapsed'">
   <div [ngClass]="showToggle ? 'sidebar': 'collapsed' " >
     <!-- <button class="sidebar__compose"><span class="material-icons"> add </span>Compose</button> -->
-    <div class="sidebarOption sidebarOption__active">
-      <span class="material-icons"> inbox </span>
-      <h3>Inbox</h3>
+    <div class="sidebarOption" [ngClass]="{'sidebarOption__active': valueChange=='student'}" (click)="switchContent('student')">
+      <!-- <span class="material-icons"> inbox </span> -->
+      <span class="material-icons"> school </span>
+      <h3>Student</h3>
     </div>
-  
-    <div class="sidebarOption">
-      <span class="material-icons"> star </span>
-      <h3>Starred</h3>
+    <div class="sidebarOption"  (click)="switchContent('teacher')" [ngClass]="{'sidebarOption__active': valueChange=='teacher'}">
+      <span class="material-icons"> work </span>
+      <h3>Teacher</h3>
     </div>
-  
-    <div class="sidebarOption">
-      <span class="material-icons"> access_time </span>
-      <h3>Snoozed</h3>
+
+    <div class="sidebarOption" (click)="switchContent('org')" [ngClass]="{'sidebarOption__active': valueChange=='org'}">
+      <span class="material-icons"> account_balance </span>
+      <h3 style="margin-right:-100px !important;">Organization</h3>
     </div>
-  
+
     <div class="sidebarOption">
       <span class="material-icons"> label_important </span>
       <h3>Important</h3>
     </div>
-  
+
     <div class="sidebarOption">
       <span class="material-icons"> near_me </span>
       <h3>Sent</h3>
     </div>
-  
+
     <div class="sidebarOption">
       <span class="material-icons"> note </span>
       <h3>Drafts</h3>
     </div>
-  
+
     <div (click)="onSwitch()" class="sidebarOption">
       <span class="material-icons">{{showMore ? 'expand_more ' : 'expand_less'}} </span>
       <h3>{{showMore ? 'Less' : 'More'}}</h3>
@@ -39,7 +39,7 @@
       <span class="material-icons"> note </span>
       <h3>Drafts</h3>
     </div>
-  
+
     <!-- <div class="sidebar__footer">
       <div class="sidebar__footerIcons">
         <span class="material-icons"> person </span>

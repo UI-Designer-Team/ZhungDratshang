@@ -1,0 +1,103 @@
+      <!-- Section Starts -->
+      <div class="emailList__sections">
+        <div (click)="firstTab(1)" [ngClass]="{ section__selected: tabOne == 'show' }" class="section" >
+          <span class="material-icons"> inbox </span>
+          <h4>Primary</h4>
+        </div>
+
+        <div (click)="firstTab(2)" [ngClass]="{ section__selected2: tabTwo == 'show2' }" class="section">
+          <span class="material-icons"> local_offer </span>
+          <h4>Promotions</h4><!--comment-->
+        </div>
+
+        <div  (click)="firstTab(3)" class="section">
+          <!-- <span class="material-icons"> people </span>
+          <h4>Social</h4> -->
+        </div>
+      </div>
+      <!-- Section Ends -->
+
+      <!-- Email List rows starts -->
+      <div >
+        <!-- Email Row Starts -->
+        <div *ngIf="tabOne == 'show'" class="tab-content tableHead" id="nav-tabContent">
+          <div class="tab-pane show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <!-------------------tba------------------------->
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col">
+                  <div   style="padding-left:0; margin-top: 2%; justify-content:center;">
+                    <mat-button-toggle-group class="toogleButton" name="fontStyle" aria-label="Font Style">
+                      <mat-button-toggle [print]="['demo', config]"> <i class="bi bi-printer"></i>Print</mat-button-toggle>
+                      <mat-button-toggle (click)="ExportTOExcel()"><i class="bi bi-file-earmark-spreadsheet"></i>Export as Excel</mat-button-toggle>
+                      <mat-button-toggle  (click)="downloadAsPDF()"><i class="bi bi-file-earmark-pdf"></i>Export To PDF</mat-button-toggle>
+                    </mat-button-toggle-group>
+                    &nbsp;&nbsp;
+                      <button type="button" class="btn btn-warning"  (click)="addOrg()">Add Organization</button> &nbsp;
+                    <!-- <input class="textbox" [(ngModel)]="searchValue" (keyup)="applyFilter()" placeholder="Filter"> -->
+                    <!-- <mat-slide-toggle color="warn" (click)="show()">{{showMore? 'Show Less':'Show More'}}</mat-slide-toggle> -->
+                  </div>
+                </div>
+              </div>
+              <div #TABLE id="pdfTable" #pdfTable>
+                <table  id="demo"  class="paleBlueRows">
+
+                  <thead>
+                  <tr>
+                      <th>Organization Name</th>
+                      <th>Organization Location</th>
+                      <th>Organization Type</th>
+                      <th>Organization Description</th>
+                  <!-- <ng-container *ngIf="showMore">
+                    <th>Village</th>
+                    <th>Gewog</th>
+                    <th>Dzongkhag</th>
+                  </ng-container> -->
+                  <th colspan="3">Actions</th>
+                  </tr>
+                  </thead>
+                  <tfoot>
+                  <!-- <tr>
+                  <td>foot1</td>
+                  <td>foot2</td>
+                  <td>foot3</td>
+                  <td>foot4</td>
+                  </tr>
+                  </tfoot> -->
+                  <tbody>
+                  <tr *ngFor="let element of ELEMENT_DATA">
+                      <td>{{element.organization_name}}</td>
+                      <td>{{element.org_location}}</td>
+                      <td>{{element.org_type}}</td>
+                      <td>{{element.org_description}}</td>
+                  <!-- <ng-container *ngIf="showMore">
+                    <td>{{element.village}}</td>
+                    <td>{{element.gewog}}</td>
+                    <td>{{element.dzongkhag}}</td>
+                  </ng-container> -->
+                  <td>
+                    <span style="cursor: pointer;"(click)="updateTPD(element)" class="badge rounded-pill bg-success">Edit</span>
+                  </td>
+                  <td><span style="cursor: pointer;" class="badge rounded-pill bg-danger" (click)="onDelete(element.id)">Delete</span></td>
+                  </tr>
+                  </tbody>
+                  </table>
+                  <mat-paginator #paginator
+                  [pageSize]="1"
+                  [pageSizeOptions]="[5, 10, 20]">
+                  </mat-paginator>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div *ngIf="tabTwo == 'show2' ">
+          <app-teacher-course-taken></app-teacher-course-taken>
+        </div>
+        <div  *ngIf="tabThree == 'show3' ">
+          <app-user></app-user>
+        </div>
+        <!-- Email Row Ends -->
+      </div>
+      <!-- Email List rows Ends -->
+
